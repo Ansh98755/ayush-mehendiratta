@@ -18,18 +18,16 @@ const About = () => {
               I'm Ayush, A passionate developer based in India
             </h3>
             <p className="text-gray-400 leading-relaxed">
+              A passionate problem solver and full-stack developer, currently pursuing B.Tech in Computer Science. With hands-on experience in Flutter for mobile app development and Next.js for building fast, scalable websites, I love turning complex challenges into simple, elegant solutions. Whether it's crafting intuitive mobile experiences or engineering high-performance web apps, I'm driven by a deep curiosity and a commitment to continuous learning. Let's build something amazing together.
+            </p>
+            <p className="text-gray-400 leading-relaxed">
               I'm currently pursuing B.Tech in Computer Science from Graphic Era Deemed to be University. 
               I love building innovative mobile and web experiences using Flutter and Next.js. 
               I'm also actively working on real-world products with startups.
             </p>
-            <p className="text-gray-400 leading-relaxed">
-              My journey in technology has been dedicated to finding the perfect balance between 
-              performance and user experience. I'm always excited to work on challenging projects 
-              that push the boundaries of what's possible.
-            </p>
             <div className="grid grid-cols-3 gap-6 pt-6">
               <div className="text-center">
-                <div className="text-3xl font-bold text-red-500">2+</div>
+                <div className="text-3xl font-bold text-red-500">1+</div>
                 <div className="text-gray-400">Years Experience</div>
               </div>
               <div className="text-center">

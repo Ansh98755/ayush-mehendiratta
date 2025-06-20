@@ -57,7 +57,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-300">Email</h4>
-                  <p className="text-gray-400">ayush.mehendiratta@example.com</p>
+                  <p className="text-gray-400">ayushmehendiratta64@gmail.com</p>
                 </div>
               </div>
               
@@ -74,13 +74,17 @@ const Contact = () => {
 
             <div className="flex space-x-6 pt-4">
               <a
-                href="#"
+                href="https://github.com/Ansh98755/furrvy_project.git"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-12 h-12 bg-gray-700 hover:bg-red-500 rounded-lg flex items-center justify-center transition-colors duration-200 group"
               >
                 <Github size={20} className="text-gray-300 group-hover:text-white" />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/in/ayush-mehendiratta-0687a9256/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-12 h-12 bg-gray-700 hover:bg-red-500 rounded-lg flex items-center justify-center transition-colors duration-200 group"
               >
                 <Linkedin size={20} className="text-gray-300 group-hover:text-white" />

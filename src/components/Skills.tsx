@@ -3,17 +3,20 @@ import React from 'react';
 
 const Skills = () => {
   const skills = [
-    { name: 'Flutter', level: 90, category: 'Mobile' },
+    { name: 'Flutter', level: 90, category: 'Frontend' },
     { name: 'Next.js', level: 85, category: 'Frontend' },
     { name: 'JavaScript', level: 88, category: 'Language' },
     { name: 'Python', level: 80, category: 'Language' },
+    { name: 'Kotlin', level: 75, category: 'Language' },
+    { name: 'Java', level: 78, category: 'Language' },
     { name: 'Node.js', level: 75, category: 'Backend' },
     { name: 'MongoDB', level: 70, category: 'Database' },
     { name: 'Firebase', level: 85, category: 'Backend' },
     { name: 'Git', level: 90, category: 'Tools' },
+    { name: 'App Development', level: 88, category: 'Frontend' },
   ];
 
-  const categories = ['Mobile', 'Frontend', 'Backend', 'Language', 'Database', 'Tools'];
+  const categories = ['Frontend', 'Backend', 'Language', 'Database', 'Tools'];
 
   return (
     <section id="skills" className="py-20 px-6 bg-gray-800/50">
@@ -49,7 +52,7 @@ const Skills = () => {
           ))}
         </div>
 
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
           {categories.map((category) => (
             <div
               key={category}

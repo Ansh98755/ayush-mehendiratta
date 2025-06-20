@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Github } from 'lucide-react';
+import { Github, ExternalLink } from 'lucide-react';
 
 const Projects = () => {
   const projects = [
@@ -10,15 +10,32 @@ const Projects = () => {
       image: 'https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=500&h=300&fit=crop',
       technologies: ['Flutter', 'Dart', 'Firebase', 'REST APIs'],
       status: 'Launching Soon',
-      link: '#'
+      github: 'https://github.com/Ansh98755/furrvy_project.git'
     },
     {
       title: 'DoStartup Website',
       description: 'Next.js-based responsive business website featuring performance-optimized components.',
       image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=500&h=300&fit=crop',
-      technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
+      technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'AWS'],
       status: 'In Development',
-      link: '#'
+      github: 'https://github.com/Ansh98755/dostartup.git',
+      live: 'https://dostartup.vercel.app/'
+    },
+    {
+      title: 'Sahayak',
+      description: 'A cross-platform app for real-time hospital appointment and bed booking.',
+      image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=500&h=300&fit=crop',
+      technologies: ['Flutter', 'Firebase', 'Real-time Database'],
+      status: 'Completed',
+      github: 'https://github.com/Ansh98755/Sahayak.git'
+    },
+    {
+      title: 'Coffee Ordering App',
+      description: 'Mobile application for coffee ordering with intuitive UI and smooth user experience.',
+      image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=500&h=300&fit=crop',
+      technologies: ['Flutter', 'Dart', 'UI/UX Design'],
+      status: 'Completed',
+      github: 'https://github.com/Ansh98755/coffee_ordering_app.git'
     }
   ];
 
@@ -31,7 +48,7 @@ const Projects = () => {
           </h2>
           <div className="w-20 h-1 bg-red-500 mx-auto mb-6"></div>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            Here are some of the projects I'm currently working on
+            Here are some of the projects I've worked on
           </p>
         </div>
 
@@ -75,12 +92,25 @@ const Projects = () => {
                 
                 <div className="flex space-x-4">
                   <a
-                    href={project.link}
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center space-x-2 text-red-500 hover:text-red-400 transition-colors duration-200"
                   >
                     <Github size={16} />
                     <span>View Code</span>
                   </a>
+                  {project.live && (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center space-x-2 text-blue-500 hover:text-blue-400 transition-colors duration-200"
+                    >
+                      <ExternalLink size={16} />
+                      <span>Live Demo</span>
+                    </a>
+                  )}
                 </div>
               </div>
             </div>

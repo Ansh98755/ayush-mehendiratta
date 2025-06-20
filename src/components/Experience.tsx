@@ -12,12 +12,13 @@ const Experience = () => {
       current: true
     },
     {
-      company: 'DoStartup',
+      company: 'Young Thames (URE Legal Advocates)',
       role: 'Next.js Developer',
       period: 'Ongoing',
-      description: 'Building a modern business website using Next.js for a startup, featuring performance-optimized components and dynamic routing.',
-      technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
-      current: true
+      description: 'Building doStartup - a modern business website using Next.js for a startup, featuring performance-optimized components and dynamic routing.',
+      technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'AWS'],
+      current: true,
+      link: 'https://dostartup.vercel.app/'
     }
   ];
 
@@ -44,6 +45,11 @@ const Experience = () => {
                       {exp.role}
                     </h3>
                     <h4 className="text-xl text-red-500 font-medium">{exp.company}</h4>
+                    {exp.link && (
+                      <a href={exp.link} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-red-400 text-sm">
+                        View Project →
+                      </a>
+                    )}
                   </div>
                   <div className="flex items-center space-x-2 mt-2 md:mt-0">
                     <span className="text-gray-400">{exp.period}</span>

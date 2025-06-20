@@ -20,8 +20,7 @@ const Hero = () => {
               Flutter & Next.js Developer
             </h2>
             <p className="text-xl text-gray-400 max-w-lg">
-              A passionate B.Tech CS student building scalable apps and modern websites. 
-              Currently working with Furrvy and DoStartup on real-world projects.
+              Aspiring Software Developer with a strong foundation in development. I specialize in building modern, responsive apps using Flutter and high-performance websites with Next.js. With a problem-solving mindset and a passion for clean, efficient code, I'm focused on creating seamless digital experiences and growing into a versatile tech professional.
             </p>
           </div>
           
@@ -41,10 +40,10 @@ const Hero = () => {
           </div>
 
           <div className="flex space-x-6 pt-4">
-            <a href="#" className="text-gray-400 hover:text-red-500 transition-colors duration-200">
+            <a href="https://github.com/Ansh98755/furrvy_project.git" className="text-gray-400 hover:text-red-500 transition-colors duration-200">
               <Github size={24} />
             </a>
-            <a href="#" className="text-gray-400 hover:text-red-500 transition-colors duration-200">
+            <a href="https://www.linkedin.com/in/ayush-mehendiratta-0687a9256/" className="text-gray-400 hover:text-red-500 transition-colors duration-200">
               <Linkedin size={24} />
             </a>
           </div>
@@ -52,10 +51,12 @@ const Hero = () => {
 
         <div className="flex justify-center lg:justify-end animate-fade-in">
           <div className="relative">
-            <div className="w-80 h-80 rounded-full bg-red-500/20 flex items-center justify-center">
-              <div className="w-72 h-72 rounded-full bg-gray-700 flex items-center justify-center text-6xl font-bold text-red-500">
-                AM
-              </div>
+            <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-red-500/20">
+              <img 
+                src="/lovable-uploads/291d722d-f038-4085-8d7d-d08608156b71.png" 
+                alt="Ayush Mehendiratta" 
+                className="w-full h-full object-cover object-center scale-110"
+              />
             </div>
             <div className="absolute -top-4 -right-4 w-8 h-8 bg-red-500 rounded-full animate-pulse"></div>
             <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-blue-500 rounded-full animate-pulse delay-300"></div>
