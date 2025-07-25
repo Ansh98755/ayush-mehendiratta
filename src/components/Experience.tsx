@@ -11,13 +11,21 @@ const Experience = () => {
       technologies: ['Flutter', 'Dart', 'Firebase', 'REST APIs'],
       current: true
     },
+     {
+      company: 'Indrav',
+      role: 'Flutter Developer',
+      period: 'Ongoing',
+      description: 'Working on a live app launching soon. Build using Flutter it\'s the user\'s own app',
+      technologies: ['Flutter', 'Dart', 'Firebase', 'REST APIs'],
+      current: true
+    },
     {
       company: 'Young Thames (URE Legal Advocates)',
       role: 'Next.js Developer',
       period: 'Completed',
       description: 'Building doStartup - a modern business website using Next.js for a startup, featuring performance-optimized components and dynamic routing.',
       technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'AWS'],
-      current: true,
+      current: false,
       link: 'https://dostartup.vercel.app/'
     }
   ];
