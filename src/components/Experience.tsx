@@ -14,7 +14,7 @@ const Experience = () => {
     {
       company: 'Young Thames (URE Legal Advocates)',
       role: 'Next.js Developer',
-      period: 'Ongoing',
+      period: 'Completed',
       description: 'Building doStartup - a modern business website using Next.js for a startup, featuring performance-optimized components and dynamic routing.',
       technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'AWS'],
       current: true,
