@@ -1,8 +1,70 @@
-
-import React from 'react';
-import { Github, ExternalLink } from 'lucide-react';
+import React, { useState } from 'react';
+import {
+  Github,
+  ExternalLink,
+  Flame,
+  Globe,
+  LayoutDashboard,
+  Monitor,
+  Terminal,
+  Wand2,
+  Cpu,
+  BarChart,
+  Activity,
+  BookOpen,
+  PieChart,
+  LineChart,
+  FlaskConical,
+  FileText,
+  NotebookPen,
+  Layers,
+  Code,
+  Cloud,
+  Database
+} from 'lucide-react';
 
 const Projects = () => {
+  const [expandedTools, setExpandedTools] = useState({});
+
+  const techIcons = {
+    Flutter: Wand2,
+    Dart: Terminal,
+    Firebase: Flame,
+    'REST APIs': Globe,
+    'Next.js': LayoutDashboard,
+    React: Monitor,
+    TypeScript: Code,
+    'Tailwind CSS': Layers,
+    AWS: Cloud,
+    Kotlin: Terminal,
+    'Real-time Database': Database,
+    'Jetpack-Compose': LayoutDashboard,
+    'UI/UX Design': LayoutDashboard,
+    Python: Cpu,
+    RestAPI: Globe,
+    Streamlit: Monitor
+  };
+
+  const toolIcons = {
+    Matplotlib: BarChart,
+    Numpy: Activity,
+    pandas: BookOpen,
+    yfinance: PieChart,
+    'Visualization Libraries': BarChart,
+    seaborn: LineChart,
+    streamlit: Monitor,
+    'Web Scraping': Globe,
+    beautifulsoup4: FlaskConical,
+    lxml: FileText,
+    'Data Export & File Handling': FileText,
+    openpyxl: NotebookPen
+  };
+
+  const renderIcon = (name, iconMap) => {
+    const IconComponent = iconMap[name];
+    return IconComponent ? <IconComponent size={14} className="mr-1" /> : null;
+  };
+
   const projects = [
     {
       title: 'Furrvy App',
@@ -23,9 +85,9 @@ const Projects = () => {
     },
     {
       title: 'Sahayak',
-      description: 'A cross-platform app for real-time hospital appointment and bed booking.',
+      description: 'Android app for real-time hospital appointment and bed booking.',
       image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=500&h=300&fit=crop',
-      technologies: ['Flutter', 'Firebase', 'Real-time Database'],
+      technologies: ['Kotlin', 'Firebase', 'Real-time Database', 'Jetpack-Compose'],
       status: 'Completed',
       github: 'https://github.com/Ansh98755/Sahayak.git'
     },
@@ -33,10 +95,35 @@ const Projects = () => {
       title: 'Coffee Ordering App',
       description: 'Mobile application for coffee ordering with intuitive UI and smooth user experience.',
       image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=500&h=300&fit=crop',
-      technologies: ['Flutter', 'Dart', 'UI/UX Design'],
+      technologies: ['Flutter', 'Dart', 'UI/UX Design','RestAPI', 'AWS', 'Node.js', 'Express.js'],
       status: 'Completed',
       github: 'https://github.com/Ansh98755/coffee_ordering_app.git'
-    }
+    },
+    {
+      title: 'Notification App',
+      description: 'Dummy Notification and Calling app for realtime push notifcation and dummy calling.',
+      image: 'https://plus.unsplash.com/premium_photo-1718648398342-ebf4c2a8bf9a?q=80&w=1112&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      technologies: ['Flutter', 'Dart', 'UI/UX Design','RestAPI', 'AWS', 'Node.js', 'Express.js'],
+      status: 'Completed',
+      github: 'https://github.com/Ansh98755/WhatsApp_Clone.git'
+    },
+    {
+      title: 'Smart Advisor Tool',
+      description: 'Tool to show recomendation of the funds according to the user choice like investment amount, volatility, beta, VaR etc.',
+      image: 'https://images.unsplash.com/photo-1563986768711-b3bde3dc821e?q=80&w=1168&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      technologies: ['Python', 'RestAPI', 'Streamlit'],
+      tools: ['Matplotlib', 'Numpy', 'pandas', 'numpy', 'yfinance', 'Visualization Libraries', 'matplotlib', 'seaborn', 'streamlit', 'Web Scraping', 'beautifulsoup4', 'lxml', 'Data Export & File Handling', 'openpyxl'],
+      status: 'Completed',
+      github: 'https://github.com/Ansh98755/smart_advisor_tool.git'
+    },
+    {
+      title: 'Smart Fund Advisor AI App',
+      description: 'App for showing the funds recomendations according to the user preferences, make predictions according to the set parameters as well as using the ai provided data dynamically .',
+      image: 'https://images.unsplash.com/photo-1615992174118-9b8e9be025e7?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      technologies: ['Flutter', 'Dart', 'UI/UX Design', 'RestAPI', 'AWS', 'Node.js', 'Express.js'],
+      status: 'Completed',
+      github: 'https://github.com/Ansh98755/smart_fund_advisor_app.git'
+    },
   ];
 
   return (
@@ -70,7 +157,7 @@ const Projects = () => {
                   </span>
                 </div>
               </div>
-              
+
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-3 group-hover:text-red-500 transition-colors duration-300">
                   {project.title}
@@ -78,24 +165,54 @@ const Projects = () => {
                 <p className="text-gray-400 mb-4 leading-relaxed">
                   {project.description}
                 </p>
-                
+
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm"
+                      className="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm flex items-center"
                     >
+                      {renderIcon(tech, techIcons)}
                       {tech}
                     </span>
                   ))}
                 </div>
-                
+
+                {project.tools && (
+                  <div className="mb-4">
+                    <div className="flex flex-wrap gap-2">
+                      {(expandedTools[index] ? project.tools : project.tools.slice(0, 5)).map((tool) => (
+                        <span
+                          key={tool}
+                          className="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm flex items-center"
+                        >
+                          {renderIcon(tool, toolIcons)}
+                          {tool}
+                        </span>
+                      ))}
+                    </div>
+                    {project.tools.length > 5 && (
+                      <button
+                        onClick={() =>
+                          setExpandedTools((prev) => ({
+                            ...prev,
+                            [index]: !prev[index],
+                          }))
+                        }
+                        className="mt-2 text-sm text-blue-400 hover:underline focus:outline-none"
+                      >
+                        {expandedTools[index] ? 'View Less' : 'View More'}
+                      </button>
+                    )}
+                  </div>
+                )}
+
                 <div className="flex space-x-4">
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-2 text-red-500 hover:text-red-400 transition-colors duration-200"
+                                        className="flex items-center space-x-2 text-red-500 hover:text-red-400 transition-colors duration-200"
                   >
                     <Github size={16} />
                     <span>View Code</span>

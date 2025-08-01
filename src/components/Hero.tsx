@@ -29,7 +29,7 @@ const Hero = () => {
               onClick={() => scrollToSection('projects')}
               className="bg-red-500 hover:bg-red-600 px-8 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105"
             >
-              View Portfolio
+              View Projects
             </button>
             <button
               onClick={() => scrollToSection('contact')}
