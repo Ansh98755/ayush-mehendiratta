@@ -4,20 +4,20 @@ import React from 'react';
 const Experience = () => {
   const experiences = [
     {
-      company: 'Furrvy',
-      role: 'Flutter Developer',
-      period: 'Ongoing',
-      description: 'Working on a live app launching soon. Built using Flutter with modern architecture patterns and real-time features.',
-      technologies: ['Flutter', 'Dart', 'Firebase', 'REST APIs'],
-      current: true
-    },
-     {
       company: 'Indrav',
       role: 'Flutter Developer',
-      period: 'Ongoing',
+      period: 'About to Complete (App to be live soon)',
       description: 'Working on a live app launching soon. Build using Flutter it\'s the user\'s own app',
       technologies: ['Flutter', 'Dart', 'Firebase', 'REST APIs'],
       current: true
+    },
+    {
+      company: 'Furrvy',
+      role: 'Flutter Developer',
+      period: 'Completed (App to be live soon)',
+      description: 'Working on a live app launching soon. Built using Flutter with modern architecture patterns and real-time features.',
+      technologies: ['Flutter', 'Dart', 'Firebase', 'REST APIs'],
+      current: false
     },
     {
       company: 'Young Thames (URE Legal Advocates)',

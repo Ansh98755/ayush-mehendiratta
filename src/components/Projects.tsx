@@ -22,109 +22,211 @@ import {
   Cloud,
   Database
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-const Projects = () => {
-  const [expandedTools, setExpandedTools] = useState({});
+// Type Definitions
+export type DemoMedia = { type: 'image' | 'video'; url: string };
+export type Project = {
+  title: string;
+  description: string;
+  image: string;
+  technologies: string[];
+  status: string;
+  github: string;
+  live?: string;
+  demoMedia?: DemoMedia[];
+  tools?: string[];
+};
 
-  const techIcons = {
-    Flutter: Wand2,
-    Dart: Terminal,
-    Firebase: Flame,
-    'REST APIs': Globe,
-    'Next.js': LayoutDashboard,
-    React: Monitor,
-    TypeScript: Code,
-    'Tailwind CSS': Layers,
-    AWS: Cloud,
-    Kotlin: Terminal,
-    'Real-time Database': Database,
-    'Jetpack-Compose': LayoutDashboard,
-    'UI/UX Design': LayoutDashboard,
-    Python: Cpu,
-    RestAPI: Globe,
-    Streamlit: Monitor
-  };
+const techIcons: Record<string, React.ElementType> = {
+  Flutter: Wand2,
+  Dart: Terminal,
+  Firebase: Flame,
+  'REST APIs': Globe,
+  'Next.js': LayoutDashboard,
+  React: Monitor,
+  TypeScript: Code,
+  'Tailwind CSS': Layers,
+  AWS: Cloud,
+  Kotlin: Terminal,
+  'Real-time Database': Database,
+  'Jetpack-Compose': LayoutDashboard,
+  'UI/UX Design': LayoutDashboard,
+  Python: Cpu,
+  RestAPI: Globe,
+  Streamlit: Monitor
+};
 
-  const toolIcons = {
-    Matplotlib: BarChart,
-    Numpy: Activity,
-    pandas: BookOpen,
-    yfinance: PieChart,
-    'Visualization Libraries': BarChart,
-    seaborn: LineChart,
-    streamlit: Monitor,
-    'Web Scraping': Globe,
-    beautifulsoup4: FlaskConical,
-    lxml: FileText,
-    'Data Export & File Handling': FileText,
-    openpyxl: NotebookPen
-  };
+const toolIcons: Record<string, React.ElementType> = {
+  Matplotlib: BarChart,
+  Numpy: Activity,
+  pandas: BookOpen,
+  yfinance: PieChart,
+  'Visualization Libraries': BarChart,
+  seaborn: LineChart,
+  streamlit: Monitor,
+  'Web Scraping': Globe,
+  beautifulsoup4: FlaskConical,
+  lxml: FileText,
+  'Data Export & File Handling': FileText,
+  openpyxl: NotebookPen
+};
 
-  const renderIcon = (name, iconMap) => {
-    const IconComponent = iconMap[name];
-    return IconComponent ? <IconComponent size={14} className="mr-1" /> : null;
-  };
+const renderIcon = (name: string, iconMap: Record<string, React.ElementType>) => {
+  const IconComponent = iconMap[name];
+  return IconComponent ? <IconComponent size={14} className="mr-1" /> : null;
+};
 
-  const projects = [
-    {
-      title: 'Furrvy App',
-      description: 'Flutter-based mobile application launching soon with modern UI/UX and real-time features.',
-      image: 'https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=500&h=300&fit=crop',
-      technologies: ['Flutter', 'Dart', 'Firebase', 'REST APIs'],
-      status: 'Launching Soon',
-      github: 'https://github.com/Ansh98755/furrvy_project.git'
-    },
-    {
-      title: 'DoStartup Website',
-      description: 'Next.js-based responsive business website featuring performance-optimized components.',
-      image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=500&h=300&fit=crop',
-      technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'AWS'],
-      status: 'In Development',
-      github: 'https://github.com/Ansh98755/dostartup.git',
-      live: 'https://dostartup.vercel.app/'
-    },
-    {
-      title: 'Sahayak',
-      description: 'Android app for real-time hospital appointment and bed booking.',
-      image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=500&h=300&fit=crop',
-      technologies: ['Kotlin', 'Firebase', 'Real-time Database', 'Jetpack-Compose'],
-      status: 'Completed',
-      github: 'https://github.com/Ansh98755/Sahayak.git'
-    },
-    {
-      title: 'Coffee Ordering App',
-      description: 'Mobile application for coffee ordering with intuitive UI and smooth user experience.',
-      image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=500&h=300&fit=crop',
-      technologies: ['Flutter', 'Dart', 'UI/UX Design','RestAPI', 'AWS', 'Node.js', 'Express.js'],
-      status: 'Completed',
-      github: 'https://github.com/Ansh98755/coffee_ordering_app.git'
-    },
-    {
-      title: 'Notification App',
-      description: 'Dummy Notification and Calling app for realtime push notifcation and dummy calling.',
-      image: 'https://plus.unsplash.com/premium_photo-1718648398342-ebf4c2a8bf9a?q=80&w=1112&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      technologies: ['Flutter', 'Dart', 'UI/UX Design','RestAPI', 'AWS', 'Node.js', 'Express.js'],
-      status: 'Completed',
-      github: 'https://github.com/Ansh98755/WhatsApp_Clone.git'
-    },
-    {
-      title: 'Smart Advisor Tool',
-      description: 'Tool to show recomendation of the funds according to the user choice like investment amount, volatility, beta, VaR etc.',
-      image: 'https://images.unsplash.com/photo-1563986768711-b3bde3dc821e?q=80&w=1168&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      technologies: ['Python', 'RestAPI', 'Streamlit'],
-      tools: ['Matplotlib', 'Numpy', 'pandas', 'numpy', 'yfinance', 'Visualization Libraries', 'matplotlib', 'seaborn', 'streamlit', 'Web Scraping', 'beautifulsoup4', 'lxml', 'Data Export & File Handling', 'openpyxl'],
-      status: 'Completed',
-      github: 'https://github.com/Ansh98755/smart_advisor_tool.git'
-    },
-    {
-      title: 'Smart Fund Advisor AI App',
-      description: 'App for showing the funds recomendations according to the user preferences, make predictions according to the set parameters as well as using the ai provided data dynamically .',
-      image: 'https://images.unsplash.com/photo-1615992174118-9b8e9be025e7?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      technologies: ['Flutter', 'Dart', 'UI/UX Design', 'RestAPI', 'AWS', 'Node.js', 'Express.js'],
-      status: 'Completed',
-      github: 'https://github.com/Ansh98755/smart_fund_advisor_app.git'
-    },
-  ];
+export const projects: Project[] = [
+  {
+    title: 'Furrvy App',
+    description: 'Flutter-based mobile application launching soon with modern UI/UX and real-time features.',
+    image: '/images/furrvy-9.webp',
+    technologies: ['Flutter', 'Dart', 'Firebase', 'REST APIs'],
+    status: 'Launching Soon',
+    github: 'https://github.com/Ansh98755/furrvy-project.git',
+   demoMedia: [
+  { type: 'video', url: '/images/furrvy-1.mp4' },
+  { type: 'image', url: '/images/furrvy-9.webp' },
+  { type: 'image', url: '/images/furrvy-7.webp' },
+  { type: 'image', url: '/images/furrvy-8.webp' },
+  { type: 'image', url: '/images/furrvy-6.webp' },
+  { type: 'image', url: '/images/furrvy-5.webp' },
+  { type: 'image', url: '/images/furrvy-4.webp' },
+  { type: 'image', url: '/images/furrvy-3.webp' },
+  { type: 'image', url: '/images/furrvy-2.webp' },
+  ],
+  },
+  {
+    title: 'Niti App',
+    description: 'Flutter-based mobile application in testing face with modern UI/UX and real-time features.',
+    image: '/images/niti-12.webp',
+    technologies: ['Flutter', 'Dart', 'Firebase', 'REST APIs'],
+    status: 'Launching Soon',
+    github: 'https://github.com/Ansh98755/niti_frontend.git',
+   demoMedia: [
+  { type: 'video', url: '/images/niti-11.mp4' },
+  { type: 'image', url: '/images/niti-12.webp' },
+  { type: 'image', url: '/images/niti-1.webp' },
+  { type: 'image', url: '/images/niti-2.webp' },
+  { type: 'image', url: '/images/niti-3.webp' },
+  { type: 'image', url: '/images/niti-4.webp' },
+  { type: 'image', url: '/images/niti-5.webp' },
+  { type: 'image', url: '/images/niti-6.webp' },
+  { type: 'image', url: '/images/niti-7.webp' },
+  { type: 'image', url: '/images/niti-8.webp' },
+  { type: 'image', url: '/images/niti-9.webp' },
+  { type: 'image', url: '/images/niti-10.webp' },
+  ]
+  },
+  {
+    title: 'DoStartup Website',
+    description: 'Next.js-based responsive business website featuring performance-optimized components.',
+    image: '/images/dostartup-1.webp',
+    technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'AWS'],
+    status: 'In Development',
+    github: 'https://github.com/Ansh98755/tax_website.git',
+    live: 'https://dostartup.vercel.app/',
+    demoMedia: [
+      { type: 'image', url: '/images/dostartup-1.webp' },
+      { type: 'image', url: '/images/dostartup-2.webp' },
+      { type: 'image', url: '/images/dostartup-3.webp' },
+      { type: 'image', url: '/images/dostartup-4.webp' },
+      { type: 'image', url: '/images/dostartup-5.webp' },
+      { type: 'image', url: '/images/dostartup-6.webp' },
+    ]
+  },
+  {
+    title: 'Sahayak',
+    description: 'Android app for real-time hospital appointment and bed booking.',
+    image: '/images/sahayak-1.webp',
+    technologies: ['Kotlin', 'Firebase', 'Real-time Database', 'Jetpack-Compose'],
+    status: 'Completed',
+    github: 'https://github.com/Ansh98755/Sahayak.git',
+    demoMedia: [
+      { type: 'video', url: '/images/sahayak-9.mp4' },
+      { type: 'image', url: '/images/sahayak-1.webp' },
+      { type: 'image', url: '/images/sahayak-2.webp' },
+      { type: 'image', url: '/images/sahayak-3.webp' },
+      { type: 'image', url: '/images/sahayak-4.webp' },
+      { type: 'image', url: '/images/sahayak-5.webp' },
+      { type: 'image', url: '/images/sahayak-8.webp' },
+      { type: 'image', url: '/images/sahayak-7.webp' },
+
+    ]
+  },
+  {
+    title: 'Coffee Ordering App',
+    description: 'Mobile application for coffee ordering with intuitive UI and smooth user experience.',
+    image: '/images/coffee-1.webp',
+    technologies: ['Flutter', 'Dart', 'UI/UX Design', 'RestAPI', 'AWS', 'Node.js', 'Express.js'],
+    status: 'Completed',
+    github: 'https://github.com/Ansh98755/coffee_ordering_app.git',
+    demoMedia: [
+      { type: 'video', url: '/images/coffee-6.mp4' },
+      { type: 'image', url: '/images/coffee-1.webp' },
+      { type: 'image', url: '/images/coffee-2.webp' },
+      { type: 'image', url: '/images/coffee-3.webp' },
+      { type: 'image', url: '/images/coffee-4.webp' },
+      { type: 'image', url: '/images/coffee-5.webp' },
+    ]
+  },
+  {
+    title: 'Puzzle Game App',
+    description: 'Best stress buster game to relax mind built mostly to calm the mood.',
+    image: '/images/puzzle-2.webp',
+    technologies: ['Flutter', 'Dart', 'UI/UX Design', 'RestAPI', 'AWS', 'Node.js', 'Express.js'],
+    status: 'Completed',
+    github: 'https://github.com/Ansh98755/puzzle_game.git',
+    demoMedia: [
+      { type: 'video', url: '/images/puzzle-1.mp4' },
+      { type: 'image', url: '/images/puzzle-2.webp' },
+      { type: 'image', url: '/images/puzzle-3.webp' },
+      { type: 'image', url: '/images/puzzle-4.webp' },
+      { type: 'image', url: '/images/puzzle-5.webp' },
+      { type: 'image', url: '/images/puzzle-6.webp' },
+    ]
+  },
+  {
+    title: 'Smart Advisor Tool',
+    description: 'Tool to show recomendation of the funds according to the user choice like investment amount, volatility, beta, VaR etc.',
+    image: '/images/fund-1.webp',
+    technologies: ['Python', 'RestAPI', 'Streamlit'],
+    tools: ['Matplotlib', 'Numpy', 'pandas', 'numpy', 'yfinance', 'Visualization Libraries', 'matplotlib', 'seaborn', 'streamlit', 'Web Scraping', 'beautifulsoup4', 'lxml', 'Data Export & File Handling', 'openpyxl'],
+    status: 'Completed',
+    github: 'https://github.com/Ansh98755/smart_advisor_tool.git',
+    demoMedia: [
+ { type: 'video', url: '/images/fund-4.mp4' },
+      { type: 'image', url: '/images/fund-1.webp' },
+      { type: 'image', url: '/images/fund-2.webp' },
+      { type: 'image', url: '/images/fund-3.webp' },
+      { type: 'image', url: '/images/fund-5.webp' },
+      { type: 'image', url: '/images/fund-6.webp' },
+      { type: 'image', url: '/images/fund-7.webp' },
+      { type: 'image', url: '/images/fund-8.webp' },    
+    ]
+  },
+  {
+    title: 'Smart Fund Advisor AI App',
+    description: 'App for showing the funds recomendations according to the user preferences, make predictions according to the set parameters as well as using the ai provided data dynamically.',
+    image: '/images/advisor-2.webp',
+    technologies: ['Flutter', 'Dart', 'UI/UX Design', 'RestAPI', 'AWS', 'Node.js', 'Express.js'],
+    status: 'Completed',
+    github: 'https://github.com/Ansh98755/smart_fund_advisor_app.git',
+    demoMedia: [
+      { type: 'video', url: '/images/advisor-1.mp4' },
+      { type: 'image', url: '/images/advisor-2.webp' },
+      { type: 'image', url: '/images/advisor-3.webp' },
+      { type: 'image', url: '/images/advisor-4.webp' },
+      { type: 'image', url: '/images/advisor-5.webp' },
+      { type: 'image', url: '/images/advisor-6.webp' },
+      { type: 'image', url: '/images/advisor-7.webp' }
+    ]
+  }
+];
+
+const Projects: React.FC = () => {
+  const [expandedTools, setExpandedTools] = useState<Record<number, boolean>>({});
 
   return (
     <section id="projects" className="py-20 px-6 bg-gray-800/50">
@@ -141,9 +243,10 @@ const Projects = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <div
+            <Link
               key={index}
-              className="bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-red-500/50 transition-all duration-300 group hover:scale-105"
+              to={`/projects/${index}/demo`}
+              className="group bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-red-500/50 transition-all duration-300 hover:scale-105"
             >
               <div className="relative overflow-hidden">
                 <img
@@ -193,12 +296,13 @@ const Projects = () => {
                     </div>
                     {project.tools.length > 5 && (
                       <button
-                        onClick={() =>
+                        onClick={(e) => {
+                          e.preventDefault(); // Prevents navigation
                           setExpandedTools((prev) => ({
                             ...prev,
                             [index]: !prev[index],
                           }))
-                        }
+                        }}
                         className="mt-2 text-sm text-blue-400 hover:underline focus:outline-none"
                       >
                         {expandedTools[index] ? 'View Less' : 'View More'}
@@ -212,25 +316,21 @@ const Projects = () => {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                                        className="flex items-center space-x-2 text-red-500 hover:text-red-400 transition-colors duration-200"
+                    className="flex items-center space-x-2 text-red-500 hover:text-red-400 transition-colors duration-200"
+                    onClick={(e) => e.stopPropagation()} // Prevents the parent Link from triggering
                   >
                     <Github size={16} />
                     <span>View Code</span>
                   </a>
-                  {project.live && (
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center space-x-2 text-blue-500 hover:text-blue-400 transition-colors duration-200"
-                    >
+                  {project.demoMedia && (
+                    <span className="flex items-center space-x-2 text-blue-500">
                       <ExternalLink size={16} />
                       <span>Live Demo</span>
-                    </a>
+                    </span>
                   )}
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
