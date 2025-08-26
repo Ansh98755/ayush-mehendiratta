@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { projects, Project } from './Projects';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github, X } from 'lucide-react';
 
 const ProjectDemo: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const projectIndex = Number(id);
+  const [selectedMedia, setSelectedMedia] = useState<{ url: string; type: 'image' | 'video' } | null>(null);
 
   if (isNaN(projectIndex) || projectIndex < 0 || projectIndex >= projects.length) {
     return (
@@ -36,20 +37,25 @@ const ProjectDemo: React.FC = () => {
                 key={index}
                 src={media.url}
                 alt={`${project.title} screenshot ${index + 1}`}
-                className="rounded-lg shadow-lg object-cover max-h-96 w-full"
+                className="rounded-lg shadow-lg object-cover cursor-pointer max-h-96 w-full"
+                onClick={() => setSelectedMedia(media)}
               />
             ) : (
-              <div key={index} className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
-                <iframe
+              <div
+                key={index}
+                className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg cursor-pointer"
+                onClick={() => setSelectedMedia(media)}
+              >
+                <video
                   src={media.url}
-                  title={`${project.title} video demo ${index + 1}`}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="w-full h-full"
-                ></iframe>
+                  className="w-full h-full object-cover"
+                  controls
+                ></video>
               </div>
             )
-          )}
+          )
+        }
+        )
         </div>
 
         <div className="mt-8 flex space-x-4">
@@ -75,6 +81,36 @@ const ProjectDemo: React.FC = () => {
           )}
         </div>
       </div>
+
+      {/* Modal for expanded media */}
+      {selectedMedia && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 p-4"
+          onClick={() => setSelectedMedia(null)}
+        >
+          <button
+            className="absolute top-4 right-4 text-white"
+            onClick={() => setSelectedMedia(null)}
+          >
+            <X size={28} />
+          </button>
+
+          {selectedMedia.type === 'image' ? (
+            <img
+              src={selectedMedia.url}
+              alt="Expanded media"
+              className="max-h-full max-w-full object-contain"
+            />
+          ) : (
+            <video
+              src={selectedMedia.url}
+              controls
+              autoPlay
+              className="max-h-full max-w-full object-contain"
+            />
+          )}
+        </div>
+      )}
     </div>
   );
 };

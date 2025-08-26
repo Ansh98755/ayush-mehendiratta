@@ -158,17 +158,17 @@ export const projects: Project[] = [
   {
     title: 'Coffee Ordering App',
     description: 'Mobile application for coffee ordering with intuitive UI and smooth user experience.',
-    image: '/images/coffee-1.webp',
+    image: '/lovable-uploads/coffee-1.webp',
     technologies: ['Flutter', 'Dart', 'UI/UX Design', 'RestAPI', 'AWS', 'Node.js', 'Express.js'],
     status: 'Completed',
     github: 'https://github.com/Ansh98755/coffee_ordering_app.git',
     demoMedia: [
       { type: 'video', url: '/images/coffee-6.mp4' },
-      { type: 'image', url: '/images/coffee-1.webp' },
-      { type: 'image', url: '/images/coffee-2.webp' },
-      { type: 'image', url: '/images/coffee-3.webp' },
-      { type: 'image', url: '/images/coffee-4.webp' },
-      { type: 'image', url: '/images/coffee-5.webp' },
+      { type: 'image', url: '/lovable-uploads/coffee-1.webp' },
+      { type: 'image', url: '/lovable-uploads/coffee-2.webp' },
+      { type: 'image', url: '/lovable-uploads/coffee-3.webp' },
+      { type: 'image', url: '/lovable-uploads/coffee-4.webp' },
+      { type: 'image', url: '/lovable-uploads/coffee-5.webp' },
     ]
   },
   {
@@ -209,7 +209,7 @@ export const projects: Project[] = [
   {
     title: 'Smart Fund Advisor AI App',
     description: 'App for showing the funds recomendations according to the user preferences, make predictions according to the set parameters as well as using the ai provided data dynamically.',
-    image: '/images/advisor-2.webp',
+    image: '/lovable-uploads/advisor-2.webp',
     technologies: ['Flutter', 'Dart', 'UI/UX Design', 'RestAPI', 'AWS', 'Node.js', 'Express.js'],
     status: 'Completed',
     github: 'https://github.com/Ansh98755/smart_fund_advisor_app.git',
