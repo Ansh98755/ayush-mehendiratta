@@ -215,12 +215,12 @@ export const projects: Project[] = [
     github: 'https://github.com/Ansh98755/smart_fund_advisor_app.git',
     demoMedia: [
       { type: 'video', url: '/images/advisor-1.mp4' },
-      { type: 'image', url: '/images/advisor-2.webp' },
-      { type: 'image', url: '/images/advisor-3.webp' },
-      { type: 'image', url: '/images/advisor-4.webp' },
-      { type: 'image', url: '/images/advisor-5.webp' },
-      { type: 'image', url: '/images/advisor-6.webp' },
-      { type: 'image', url: '/images/advisor-7.webp' }
+      { type: 'image', url: '/lovable-uploads/advisor-2.webp' },
+      { type: 'image', url: '/lovable-uploads/advisor-3.webp' },
+      { type: 'image', url: '/lovable-uploads/advisor-4.webp' },
+      { type: 'image', url: '/lovable-uploads/advisor-5.webp' },
+      { type: 'image', url: '/lovable-uploads/advisor-6.webp' },
+      { type: 'image', url: '/lovable-uploads/advisor-7.webp' }
     ]
   }
 ];
