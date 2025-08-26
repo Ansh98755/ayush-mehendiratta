@@ -86,7 +86,7 @@ export const projects: Project[] = [
     status: 'Launching Soon',
     github: 'https://github.com/Ansh98755/furrvy-project.git',
    demoMedia: [
-  { type: 'video', url: '/lovable-uploads/furrvy-1.mp4' },
+  { type: 'video', url: '/images/furrvy-1.mp4' },
   { type: 'image', url: '/lovable-uploads/furrvy-9.webp' },
   { type: 'image', url: '/lovable-uploads/furrvy-7.webp' },
   { type: 'image', url: '/lovable-uploads/furrvy-8.webp' },
@@ -105,7 +105,7 @@ export const projects: Project[] = [
     status: 'Launching Soon',
     github: 'https://github.com/Ansh98755/niti_frontend.git',
    demoMedia: [
-  { type: 'video', url: '/lovable-uploads/niti-11.mp4' },
+  { type: 'video', url: '/images/niti-11.mp4' },
   { type: 'image', url: '/lovable-uploads/niti-12.webp' },
   { type: 'image', url: '/lovable-uploads/niti-1.webp' },
   { type: 'image', url: '/lovable-uploads/niti-2.webp' },
@@ -128,7 +128,7 @@ export const projects: Project[] = [
     github: 'https://github.com/Ansh98755/tax_website.git',
     live: 'https://dostartup.vercel.app/',
     demoMedia: [
-      { type: 'image', url: '/lovable-uploads/dostartup-1.webp' },
+      { type: 'image', url: '/images/dostartup-1.webp' },
       { type: 'image', url: '/lovable-uploads/dostartup-2.webp' },
       { type: 'image', url: '/lovable-uploads/dostartup-3.webp' },
       { type: 'image', url: '/lovable-uploads/dostartup-4.webp' },
@@ -144,7 +144,7 @@ export const projects: Project[] = [
     status: 'Completed',
     github: 'https://github.com/Ansh98755/Sahayak.git',
     demoMedia: [
-      { type: 'video', url: '/lovable-uploads/sahayak-9.mp4' },
+      { type: 'video', url: '/images/sahayak-9.mp4' },
       { type: 'image', url: '/lovable-uploads/sahayak-1.webp' },
       { type: 'image', url: '/lovable-uploads/sahayak-2.webp' },
       { type: 'image', url: '/lovable-uploads/sahayak-3.webp' },
@@ -179,7 +179,7 @@ export const projects: Project[] = [
     status: 'Completed',
     github: 'https://github.com/Ansh98755/puzzle_game.git',
     demoMedia: [
-      { type: 'video', url: '/lovable-uploads/puzzle-1.mp4' },
+      { type: 'video', url: '/images/puzzle-1.mp4' },
       { type: 'image', url: '/lovable-uploads/puzzle-2.webp' },
       { type: 'image', url: '/lovable-uploads/puzzle-3.webp' },
       { type: 'image', url: '/lovable-uploads/puzzle-4.webp' },
@@ -196,7 +196,7 @@ export const projects: Project[] = [
     status: 'Completed',
     github: 'https://github.com/Ansh98755/smart_advisor_tool.git',
     demoMedia: [
- { type: 'video', url: '/images/fund-4.mp4' },
+      { type: 'video', url: '/images/fund-4.mp4' },
       { type: 'image', url: '/lovable-uploads/fund-1.webp' },
       { type: 'image', url: '/lovable-uploads/fund-2.webp' },
       { type: 'image', url: '/lovable-uploads/fund-3.webp' },
