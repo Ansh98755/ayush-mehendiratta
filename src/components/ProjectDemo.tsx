@@ -55,7 +55,6 @@ const ProjectDemo: React.FC = () => {
             )
           )
         }
-        )
         </div>
 
         <div className="mt-8 flex space-x-4">
