@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { projects, Project } from './Projects';
+import { projects } from './Projects';
 import { ExternalLink, Github, X } from 'lucide-react';
 
 const ProjectDemo: React.FC = () => {
@@ -27,8 +27,33 @@ const ProjectDemo: React.FC = () => {
         <Link to="/" className="text-blue-400 hover:underline mb-6 inline-block">
           ← Back to Projects
         </Link>
+
         <h1 className="text-4xl font-bold mb-4">{project.title} - Demo</h1>
         <p className="text-gray-400 mb-6">{project.description}</p>
+
+        {/* Buttons moved here */}
+        <div className="mb-8 flex space-x-4">
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center space-x-2 bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded"
+          >
+            <Github />
+            <span>View Code</span>
+          </a>
+          {project.live && (
+            <a
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded"
+            >
+              <ExternalLink />
+              <span>View Deployed</span>
+            </a>
+          )}
+        </div>
 
         <div className="grid gap-8 md:grid-cols-2">
           {project.demoMedia?.map((media, index) =>
@@ -53,30 +78,6 @@ const ProjectDemo: React.FC = () => {
                 ></video>
               </div>
             )
-          )
-        }
-        </div>
-
-        <div className="mt-8 flex space-x-4">
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center space-x-2 bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded"
-          >
-            <Github />
-            <span>View Code</span>
-          </a>
-          {project.live && (
-            <a
-              href={project.live}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded"
-            >
-              <ExternalLink />
-              <span>Live Website</span>
-            </a>
           )}
         </div>
       </div>

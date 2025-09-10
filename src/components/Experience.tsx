@@ -1,32 +1,39 @@
-
 import React from 'react';
+import { ExternalLink, Globe } from 'lucide-react';
+import { link } from 'fs';
 
 const Experience = () => {
   const experiences = [
     {
-      company: 'Indrav',
+      company: 'Indrav (Niti)',
       role: 'Flutter Developer',
-      period: 'About to Complete (App to be live soon)',
-      description: 'Working on a live app launching soon. Build using Flutter it\'s the user\'s own app',
+      period: 'App is live',
+      description:
+        "Working on a live app launching soon. Build using Flutter it's the user's own app",
       technologies: ['Flutter', 'Dart', 'Firebase', 'REST APIs'],
-      current: true
+      current: true,
+      link: 'https://github.com/Ansh98755/niti_frontend.git',
+      deployed: 'https://play.google.com/store/apps/details?id=com.niti.niti_frontend&pcampaignid=web_share' 
     },
     {
       company: 'Furrvy',
       role: 'Flutter Developer',
       period: 'Completed (App to be live soon)',
-      description: 'Working on a live app launching soon. Built using Flutter with modern architecture patterns and real-time features.',
+      description:
+        'Working on a live app launching soon. Built using Flutter with modern architecture patterns and real-time features.',
       technologies: ['Flutter', 'Dart', 'Firebase', 'REST APIs'],
-      current: false
+      current: false,
     },
     {
       company: 'Young Thames (URE Legal Advocates)',
       role: 'Next.js Developer',
       period: 'Completed',
-      description: 'Building doStartup - a modern business website using Next.js for a startup, featuring performance-optimized components and dynamic routing.',
+      description:
+        'Building doStartup - a modern business website using Next.js for a startup, featuring performance-optimized components and dynamic routing.',
       technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'AWS'],
       current: false,
-      link: 'https://dostartup.vercel.app/'
+      link: 'https://github.com/Ansh98755/tax_website.git',
+      deployed: 'https://dostartup.vercel.app/'
     }
   ];
 
@@ -52,13 +59,39 @@ const Experience = () => {
                     <h3 className="text-2xl font-semibold text-white group-hover:text-red-500 transition-colors duration-300">
                       {exp.role}
                     </h3>
-                    <h4 className="text-xl text-red-500 font-medium">{exp.company}</h4>
-                    {exp.link && (
-                      <a href={exp.link} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-red-400 text-sm">
-                        View Project →
-                      </a>
+                    <h4 className="text-xl text-red-500 font-medium">
+                      {exp.company}
+                    </h4>
+
+                    {/* Links for project + deployed */}
+                    {(exp.link || exp.deployed) && (
+                      <div className="flex space-x-4 mt-2">
+                        {exp.link && (
+                          <a
+                            href={exp.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center text-gray-400 hover:text-red-400 text-sm space-x-1"
+                          >
+                            <ExternalLink size={14} />
+                            <span>View Project</span>
+                          </a>
+                        )}
+                        {exp.deployed && (
+                          <a
+                            href={exp.deployed}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center text-blue-400 hover:text-blue-300 text-sm space-x-1"
+                          >
+                            <Globe size={14} />
+                            <span>View Deployed</span>
+                          </a>
+                        )}
+                      </div>
                     )}
                   </div>
+
                   <div className="flex items-center space-x-2 mt-2 md:mt-0">
                     <span className="text-gray-400">{exp.period}</span>
                     {exp.current && (
@@ -68,11 +101,11 @@ const Experience = () => {
                     )}
                   </div>
                 </div>
-                
+
                 <p className="text-gray-400 mb-6 leading-relaxed">
                   {exp.description}
                 </p>
-                
+
                 <div className="flex flex-wrap gap-2">
                   {exp.technologies.map((tech) => (
                     <span
@@ -84,7 +117,7 @@ const Experience = () => {
                   ))}
                 </div>
               </div>
-              
+
               {index < experiences.length - 1 && (
                 <div className="flex justify-center my-6">
                   <div className="w-1 h-8 bg-gradient-to-b from-red-500 to-transparent"></div>

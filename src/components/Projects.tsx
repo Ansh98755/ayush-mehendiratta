@@ -103,6 +103,7 @@ export const projects: Project[] = [
     image: '/lovable-uploads/niti-12.webp',
     technologies: ['Flutter', 'Dart', 'Firebase', 'REST APIs'],
     status: 'Launching Soon',
+    live: 'https://play.google.com/store/apps/details?id=com.niti.niti_frontend&pcampaignid=web_share',
     github: 'https://github.com/Ansh98755/niti_frontend.git',
    demoMedia: [
   { type: 'video', url: '/images/niti-11.mp4' },
@@ -128,7 +129,7 @@ export const projects: Project[] = [
     github: 'https://github.com/Ansh98755/tax_website.git',
     live: 'https://dostartup.vercel.app/',
     demoMedia: [
-      { type: 'image', url: '/images/dostartup-1.webp' },
+      { type: 'image', url: '/lovable-uploads/dostartup-1.webp' },
       { type: 'image', url: '/lovable-uploads/dostartup-2.webp' },
       { type: 'image', url: '/lovable-uploads/dostartup-3.webp' },
       { type: 'image', url: '/lovable-uploads/dostartup-4.webp' },
@@ -311,24 +312,44 @@ const Projects: React.FC = () => {
                   </div>
                 )}
 
-                <div className="flex space-x-4">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center space-x-2 text-red-500 hover:text-red-400 transition-colors duration-200"
-                    onClick={(e) => e.stopPropagation()} // Prevents the parent Link from triggering
-                  >
-                    <Github size={16} />
-                    <span>View Code</span>
-                  </a>
-                  {project.demoMedia && (
-                    <span className="flex items-center space-x-2 text-blue-500">
-                      <ExternalLink size={16} />
-                      <span>Live Demo</span>
-                    </span>
-                  )}
-                </div>
+              <div className="flex space-x-4">
+  {/* View Code */}
+  <a
+    href={project.github}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center space-x-2 text-red-500 hover:text-red-400 transition-colors duration-200"
+    onClick={(e) => e.stopPropagation()} // Prevents parent Link navigation
+  >
+    <Github size={16} />
+    <span>View Code</span>
+  </a>
+
+  {/* Live Demo (internal route) */}
+  <Link
+    to={`/projects/${index}/demo`}
+    className="flex items-center space-x-2 text-green-500 hover:text-green-400 transition-colors duration-200"
+    onClick={(e) => e.stopPropagation()} // Avoids double navigation
+  >
+    <ExternalLink size={16} />
+    <span>Live Demo</span>
+  </Link>
+
+  {/* View Deployed (external link) */}
+  {project.live && (
+    <a
+      href={project.live}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center space-x-2 text-blue-500 hover:text-blue-400 transition-colors duration-200"
+      onClick={(e) => e.stopPropagation()}
+    >
+      <Globe size={16} />
+      <span>View Deployed</span>
+    </a>
+  )}
+</div>
+
               </div>
             </Link>
           ))}
